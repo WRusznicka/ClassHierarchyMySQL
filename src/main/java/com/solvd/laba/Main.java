@@ -8,13 +8,29 @@ import com.solvd.laba.model.Battery;
 import com.solvd.laba.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.XMLConstants;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
     public static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
         //3 examples of CRUD operations with new DAO:
-        UserDAO userDAO = new UserDAO();
+        /* UserDAO userDAO = new UserDAO();
         LOGGER.info("\nGet list of users: ");
         userDAO.getEntities().stream().forEach(e->LOGGER.info(e.toString()));
 
@@ -75,5 +91,69 @@ public class Main {
         LOGGER.info("\nAfter deleting of new battery:");
         batteryDAO.delete(8);
         batteryDAO.getEntities().stream().forEach(e->System.out.println(e.toString()));
+        */
+        //xml validator using xsd schema and parser
+        String xmlFile = "src/main/resources/db_xml_file.xml";
+        String xsdFile = "src/main/resources/xsd_schema.xsd";
+
+        try{
+            Validator validator = initValidator(xsdFile);
+            try {
+                validator.validate(new StreamSource(new File(xmlFile)));
+                LOGGER.info("XML file is valid!");
+                //Parsing using DOM when valid:
+                parseUsingDOM(xmlFile);
+            } catch (SAXException e) {
+                LOGGER.error("Exception caught. XML file is not valid!");
+            }
+        } catch (Exception e) {
+            LOGGER.error("Exception caught.");
+        }
+
+    }
+
+    public static Validator initValidator(String xsdPath) throws SAXException{
+        SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = factory.newSchema(new File(xsdPath));
+        return schema.newValidator();
+    }
+
+    public static void parseUsingDOM(String xmlFile){
+        try{
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            Document document = builder.parse(new File(xmlFile));
+            document.getDocumentElement().normalize();
+
+            Node parentNode = document.getElementsByTagName("database").item(0);
+            NodeList nodeList = parentNode.getChildNodes();
+            int i=0;
+            for(i=0; i< nodeList.getLength(); i++){
+                Node current = nodeList.item(i);
+                if(current.getNodeType()==Node.ELEMENT_NODE){
+                    printTableElements(current.getNodeName(), document);
+                }
+
+            }
+        } catch (Exception e) {
+            LOGGER.error("Exception while parsing caught.");
+        }
+    }
+
+    public static void printTableElements(String tableName, Document document){
+        LOGGER.info("Table " + tableName);
+        NodeList nodeList = document.getElementsByTagName(tableName).item(0).getChildNodes();
+        for(int i=0; i< nodeList.getLength(); i++){
+            Node current = nodeList.item(i);
+            if(current.getNodeType()==Node.ELEMENT_NODE){
+                LOGGER.info("\t" + current.getNodeName() + " " + current.getAttributes().item(0));
+                NodeList elements = current.getChildNodes();
+                for(int j=0; j<elements.getLength();j++){
+                    Node currentEl = elements.item(j);
+                    if(currentEl.getNodeType()==Node.ELEMENT_NODE) {
+                        LOGGER.info("\t\t" + currentEl.getNodeName() + ": " + currentEl.getTextContent());
+                    }
+                }
+            }
+        }
     }
 }
