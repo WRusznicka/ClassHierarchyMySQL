@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database>
+    <users>
+        <user id="1">
+            <name>John</name>
+            <surname>Black</surname>
+            <email>john.black@gmail.com</email>
+            <password>johny123</password>
+            <phone>+48649253647</phone>
+            <type>employee</type>
+            <position>
+                <title>seller</title>
+                <salary>4000</salary>
+                <employmentType>full-time</employmentType>
+            </position>
+        </user>
+        <user id="2">
+            <name>Agata</name>
+            <surname>Smith</surname>
+            <email>agata.smith@gmail.com</email>
+            <password>asmith1</password>
+            <phone>+48649253647</phone>
+            <type>admin</type>
+            <position>
+                <title>administrator</title>
+                <salary>5500</salary>
+                <employmentType>full-time</employmentType>
+            </position>
+        </user>
+    </users>
+    <addresses>
+        <address id="1">
+            <country>Poland</country>
+            <state>Mazowieckie</state>
+            <city>Warszawa</city>
+            <addressLine>Kopinska 1</addressLine>
+            <zipCode>00-123</zipCode>
+            <usersId>1</usersId>
+        </address>
+        <address id="1">
+            <country>Poland</country>
+            <state>Mazowieckie</state>
+            <city>Warszawa</city>
+            <addressLine>Nowy Swiat 5</addressLine>
+            <zipCode>01-432</zipCode>
+            <usersId>2</usersId>
+        </address>
+    </addresses>
+    <services>
+        <service id="1">
+            <name>Battery Replacement</name>
+            <description>Replacement of laptop battery</description>
+            <price>100</price>
+            <duration>1 hour</duration>
+        </service>
+        <service id="2">
+            <name>Computer Repair</name>
+            <description>Finding the problem and repairing computer</description>
+            <price>250</price>
+            <duration>1 day</duration>
+        </service>
+    </services>
+    <invoices>
+        <invoice id="1">
+            <total_price>250</total_price>
+            <date>2025-01-21</date>
+            <users_id>2</users_id>
+        </invoice>
+        <invoice id="2">
+            <total_price>350</total_price>
+            <date>2024-06-12</date>
+            <users_id>2</users_id>
+        </invoice>
+    </invoices>
+    <services_on_invoice>
+        <service_on_invoice id="1">
+            <services_id>1</services_id>
+            <invoices_id>2</invoices_id>
+        </service_on_invoice>
+        <service_on_invoice id="2">
+            <services_id>2</services_id>
+            <invoices_id>2</invoices_id>
+        </service_on_invoice>
+    </services_on_invoice>
+</database>

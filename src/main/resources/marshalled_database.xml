@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<database>
+    <addresses>
+        <address id="3">
+            <country>Poland</country>
+            <state>Mazovian</state>
+            <city>Warsaw</city>
+            <addressLine>Zieleniecka 3</addressLine>
+            <zipCode>03-562</zipCode>
+            <usersId>3</usersId>
+        </address>
+        <address id="4">
+            <country>Poland</country>
+            <state>Mazovian</state>
+            <city>Warsaw</city>
+            <addressLine>Obwodowa 35</addressLine>
+            <zipCode>02-562</zipCode>
+            <usersId>4</usersId>
+        </address>
+    </addresses>
+    <invoices>
+        <invoice id="3">
+            <totalPrice>100.0</totalPrice>
+            <date>2025-01-12</date>
+            <usersId>3</usersId>
+        </invoice>
+        <invoice id="4">
+            <totalPrice>100.0</totalPrice>
+            <date>2024-06-30</date>
+            <usersId>4</usersId>
+        </invoice>
+    </invoices>
+    <services>
+        <service id="3">
+            <name>Selling</name>
+            <description>Selling product</description>
+            <price>0.0</price>
+            <duration>5 min</duration>
+        </service>
+        <service id="4">
+            <name>Display repair</name>
+            <description>Display repairing</description>
+            <price>100.0</price>
+            <duration>5 hours</duration>
+        </service>
+    </services>
+    <services_on_invoice>
+        <service_on_invoice id="3">
+            <serviceId>4</serviceId>
+            <invoiceId>3</invoiceId>
+        </service_on_invoice>
+        <service_on_invoice id="4">
+            <serviceId>4</serviceId>
+            <invoiceId>4</invoiceId>
+        </service_on_invoice>
+    </services_on_invoice>
+    <users>
+        <user id="3">
+            <name>Aleksandra</name>
+            <surname>Nowak</surname>
+            <email>alnowak@gmail.com</email>
+            <password>12345678</password>
+            <phone>+48564935276</phone>
+            <type>seller</type>
+            <position>
+                <title>seller</title>
+                <salary>4500 zł</salary>
+                <employmentType>part-time</employmentType>
+            </position>
+        </user>
+        <user id="4">
+            <name>Aleksander</name>
+            <surname>Pitt</surname>
+            <email>alpitt@gmail.com</email>
+            <password>12345690</password>
+            <phone>+48585935276</phone>
+            <type>seller</type>
+            <position>
+                <title>seller</title>
+                <salary>3000 zł</salary>
+                <employmentType>part-time</employmentType>
+            </position>
+        </user>
+    </users>
+</database>

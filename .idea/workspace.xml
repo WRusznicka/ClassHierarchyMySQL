@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="JDBC. DAO classes">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db_xml_file.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/xsd_schema.xsd" afterDir="false" />
+    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="XML. DOM parser. XSD schema.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Addresses.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/DateAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Invoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Invoices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/ServiceOnInvoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Services.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/ServicesOnInvoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/jaxb/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db_jaxb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,11 +116,20 @@
       <option name="project" value="LOCAL" />
       <updated>1737964387174</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="XML. DOM parser. XSD schema.">
+      <option name="closed" value="true" />
+      <created>1738176910406</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738176910406</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JDBC. DAO classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="JDBC. DAO classes" />
+    <MESSAGE value="XML. DOM parser. XSD schema." />
+    <option name="LAST_COMMIT_MESSAGE" value="XML. DOM parser. XSD schema." />
   </component>
 </project>
