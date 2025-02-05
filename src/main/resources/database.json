@@ -1,0 +1,94 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "surname": "Black",
+      "email": "john.black@gmail.com",
+      "password": "johny123",
+      "phone":  "+48649253647",
+      "type": "employee",
+      "position": {
+        "title": "seller",
+        "salary": "4000 zł",
+        "employmentType": "full-time"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Agata",
+      "surname": "Smith",
+      "email": "agata.smith@gmail.com",
+      "password": "asmith1",
+      "phone":  "+48649253647",
+      "type": "admin",
+      "position": {
+        "title": "administrator",
+        "salary": "5500 zł",
+        "employmentType": "full-time"
+      }
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "country": "Poland",
+      "state": "Mazowieckie",
+      "city": "Warszawa",
+      "addressLine": "Kopinska 1",
+      "zipCode": "00-123",
+      "usersId": 1
+    },
+    {
+      "id": 2,
+      "country": "Poland",
+      "state": "Mazowieckie",
+      "city": "Warszawa",
+      "addressLine": "Nowy Swiat 5",
+      "zipCode": "01-432",
+      "usersId": 2
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Battery Replacement",
+      "description": "Replacement of laptop battery",
+      "price": 100,
+      "duration": "1 hour"
+    },
+    {
+      "id": 2,
+      "name": "Computer Repair",
+      "description": "Finding the problem and repairing computer",
+      "price": 250,
+      "duration": "1 day"
+    }
+  ],
+  "invoices" : [
+    {
+      "id": 1,
+      "totalPrice": 250,
+      "date": "2025-01-21",
+      "usersId": 2
+    },
+    {
+      "id": 2,
+      "totalPrice": 350,
+      "date": "2024-06-12",
+      "usersId": 2
+    }
+  ],
+  "services_on_invoice": [
+    {
+      "id": 1,
+      "service_id": 1,
+      "invoice_id": 2
+    },
+    {
+      "id": 2,
+      "service_id": 2,
+      "invoice_id": 2
+    }
+  ]
+}

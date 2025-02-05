@@ -1,10 +1,14 @@
 package com.solvd.laba;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.laba.dao.jdbc.AddressDAO;
 import com.solvd.laba.dao.jdbc.BatteryDAO;
 import com.solvd.laba.dao.jdbc.UserDAO;
 import com.solvd.laba.model.Battery;
-import com.solvd.laba.model.jaxb.*;
+//import com.solvd.laba.model.jaxb.*;
+import com.solvd.laba.model.json.*;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -27,6 +31,7 @@ import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -120,16 +125,74 @@ public class Main {
             LOGGER.error("Exception caught.");
         }*/
 
-        //JAXB
+        /*//JAXB
         try {
             Database database = unmarshal();
             LOGGER.info(database.toString());
             marshal();
         } catch (Exception e){
             LOGGER.error("Error caught.");
+        }*/
+
+        //JSON
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            objectMapper.setDateFormat(df);
+
+            //Read  from json file
+            JsonNode treeNode = objectMapper.readTree(new File("src/main/resources/database.json"));
+            List<com.solvd.laba.model.json.Address> addressesFromJson = objectMapper.convertValue(treeNode.get("addresses"), new TypeReference<List<com.solvd.laba.model.json.Address>>(){});
+            List<com.solvd.laba.model.json.User> usersFromJson = objectMapper.convertValue(treeNode.get("users"), new TypeReference<List<com.solvd.laba.model.json.User>>(){});
+            List<com.solvd.laba.model.json.Service> servicesFromJson = objectMapper.convertValue(treeNode.get("services"), new TypeReference<List<com.solvd.laba.model.json.Service>>(){});
+            List<com.solvd.laba.model.json.Invoice> invoicesFromJson = objectMapper.convertValue(treeNode.get("invoices"), new TypeReference<List<com.solvd.laba.model.json.Invoice>>(){});
+            List<com.solvd.laba.model.json.ServiceOnInvoice> soiFromJson = objectMapper.convertValue(treeNode.get("services_on_invoice"), new TypeReference<List<com.solvd.laba.model.json.ServiceOnInvoice>>(){});
+
+            System.out.println(addressesFromJson);
+            System.out.println(usersFromJson);
+            System.out.println(servicesFromJson);
+            System.out.println(invoicesFromJson);
+            System.out.println(soiFromJson);
+
+            //Write to json file
+            Address a1 = new Address(3, "Poland", "Mazovian", "Warsaw", "Zieleniecka 3", "03-562", 3);
+            Address a2 = new Address(4, "Poland", "Mazovian", "Warsaw", "Obwodowa 35", "02-562", 4);
+            List<Address> addresses = new ArrayList<>();
+            addresses.add(a1);
+            addresses.add(a2);
+
+            User u1 = new User(3,"Aleksandra", "Nowak", "alnowak@gmail.com", "12345678", "+48564935276", "seller", new Position("seller", "4500 zł", "part-time"));
+            User u2 = new User(4,"Aleksander", "Pitt", "alpitt@gmail.com", "12345690", "+48585935276", "seller", new Position("seller", "3000 zł", "part-time"));
+            List<User> users = new ArrayList<>();
+            users.add(u1);
+            users.add(u2);
+
+            Service s1 = new Service(3, "Selling", "Selling product", 0, "5 min");
+            Service s2 = new Service(4, "Display repair", "Display repairing", 100, "5 hours");
+            List<Service> services = new ArrayList<>();
+            services.add(s1);
+            services.add(s2);
+
+            Invoice i1 = new Invoice(3, 100, Date.from(LocalDate.of(2025, 1, 12).atStartOfDay(ZoneId.systemDefault()).toInstant()), 3);
+            Invoice i2 = new Invoice(4, 100, Date.from(LocalDate.of(2024, 6, 30).atStartOfDay(ZoneId.systemDefault()).toInstant()), 4);
+            List<Invoice> invoices = new ArrayList<>();
+            invoices.add(i1);
+            invoices.add(i2);
+
+            ServiceOnInvoice si1 = new ServiceOnInvoice(3, 4, 3);
+            ServiceOnInvoice si2 = new ServiceOnInvoice(4, 4, 4);
+            List<ServiceOnInvoice> soi = new ArrayList<>();
+            soi.add(si1);
+            soi.add(si2);
+
+            Database database = new Database(users, addresses, services, invoices, soi);
+            File file = new File("src/main/resources/json_database.json");
+            objectMapper.writeValue(file, database);
+        }catch (Exception e){
+            LOGGER.error("Error caught.");
         }
     }
-
+/*
     public static Database unmarshal() throws JAXBException, IOException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Database.class);
         return (Database) jaxbContext.createUnmarshaller()
@@ -228,5 +291,5 @@ public class Main {
                 }
             }
         }
-    }
+    }*/
 }
