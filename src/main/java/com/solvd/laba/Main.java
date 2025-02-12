@@ -3,12 +3,18 @@ package com.solvd.laba;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.solvd.laba.dao.jdbc.AddressDAO;
+import com.solvd.laba.dao.IAddressDAO;
+import com.solvd.laba.dao.IUserDAO;
 import com.solvd.laba.dao.jdbc.BatteryDAO;
 import com.solvd.laba.dao.jdbc.UserDAO;
+import com.solvd.laba.dao.mybatis.AddressDAO;
+import com.solvd.laba.model.Address;
 import com.solvd.laba.model.Battery;
 //import com.solvd.laba.model.jaxb.*;
+import com.solvd.laba.model.User;
 import com.solvd.laba.model.json.*;
+import com.solvd.laba.service.AddressService;
+import com.solvd.laba.service.UserService;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -134,7 +140,7 @@ public class Main {
             LOGGER.error("Error caught.");
         }*/
 
-        //JSON
+        /*//JSON
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -191,6 +197,24 @@ public class Main {
         }catch (Exception e){
             LOGGER.error("Error caught.");
         }
+        */
+        //mybatis
+        IAddressDAO addressDAO = AddressService.getAddressDAOSelect();
+        Address address = addressDAO.getEntityById(2);
+        LOGGER.info(address);
+        addressDAO.insert(new Address("Poland", "Mazovian", "Warsaw", "Zieleniecka 3", "03-562", 3));
+        LOGGER.info(addressDAO.getEntities());
+        addressDAO.update(15, new Address("Poland", "Mazovian", "Warsaw", "Zieleniecka 300", "03-562", 3));
+        LOGGER.info(addressDAO.getEntities());
+        addressDAO.delete(15);
+
+        IUserDAO userDAO = UserService.getUserDAOSelect();
+        LOGGER.info(userDAO.getEntityById(3));
+        userDAO.insert(new User("Aleksandra", "Nowak", "alnowak@gmail.com", "12345678", "+48564935276", "seller", 1));
+        LOGGER.info(userDAO.getEntities());
+        userDAO.update(11, new User("Ola", "Nowakowska", "alnowak@gmail.com", "12345678", "+48564935276", "seller", 1));
+        LOGGER.info(userDAO.getEntities());
+        userDAO.delete(11);
     }
 /*
     public static Database unmarshal() throws JAXBException, IOException {

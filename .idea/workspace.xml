@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="JAXB">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/Invoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/ServiceOnInvoice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/json/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.json" afterDir="false" />
+    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="JSON">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/MyBatisConf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/mybatis/AddressDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/mybatis/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/AddressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IAddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IAddressDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,23 +57,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/viole/Desktop/SolvdCourse/25.01.2025/ClassHierarchyMySQL/src/main/java/com/solvd/laba/model/json&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/viole/Desktop/SolvdCourse/25.01.2025/ClassHierarchyMySQL/src/main/java/com/solvd/laba/model/json",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\viole\Desktop\SolvdCourse\25.01.2025\ClassHierarchyMySQL\src\main\java\com\solvd\laba\model\json" />
       <recent name="C:\Users\viole\Desktop\SolvdCourse\25.01.2025\ClassHierarchyMySQL\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.solvd.laba.dao.mybatis" />
       <recent name="com.solvd.laba.model.json" />
     </key>
   </component>
@@ -130,13 +131,22 @@
       <option name="project" value="LOCAL" />
       <updated>1738517439221</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JSON">
+      <option name="closed" value="true" />
+      <created>1738783378841</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738783378841</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JDBC. DAO classes" />
     <MESSAGE value="XML. DOM parser. XSD schema." />
     <MESSAGE value="JAXB" />
-    <option name="LAST_COMMIT_MESSAGE" value="JAXB" />
+    <MESSAGE value="JSON" />
+    <option name="LAST_COMMIT_MESSAGE" value="JSON" />
   </component>
 </project>
