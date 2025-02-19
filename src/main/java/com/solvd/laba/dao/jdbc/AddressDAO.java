@@ -70,6 +70,33 @@ public class AddressDAO implements IAddressDAO {
     }
 
     @Override
+    public List<Address> getEntitiesByUser(int id) {
+        List<Address> addresses = new ArrayList<>();
+        String sql = "SELECT * FROM mydb.addresses where WHERE users_id=?";
+        Connection connection = connectionPool.getConnection();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                Address address = new Address();
+                address.setCountry(resultSet.getString("country"));
+                address.setState(resultSet.getString("state"));
+                address.setCity(resultSet.getString("city"));
+                address.setAddressLine(resultSet.getString("address_line"));
+                address.setZipCode(resultSet.getString("zip_code"));
+                address.setUsersId(resultSet.getLong("users_id"));
+                addresses.add(address);
+            }
+        } catch (SQLException e) {
+            LOGGER.error("Error");
+        }finally {
+            connectionPool.releaseConnection(connection);
+        }
+        return addresses;
+    }
+
+    @Override
     public void insert(Address address) {
         Connection connection = connectionPool.getConnection();
         String sql = "INSERT into mydb.addresses(country, state, city, address_line, zip_code, users_id) VALUES(?,?,?,?,?,?)";

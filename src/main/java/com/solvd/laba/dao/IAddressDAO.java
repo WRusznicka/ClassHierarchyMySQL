@@ -33,6 +33,18 @@ public interface IAddressDAO extends IBaseDao<Address>{
     @Override
     List<Address> getEntities();
 
+    @Select(
+            "select * from mydb.addresses WHERE users_id = #{idx}")
+    @Results(value = {
+            @Result(property="country", column = "country"),
+            @Result(property="state", column = "state"),
+            @Result(property="city", column = "city"),
+            @Result(property="addressLine", column = "address_line"),
+            @Result(property="zipCode", column = "zip_code"),
+            @Result(property="usersId", column = "users_id"),
+    })
+    List<Address> getEntitiesByUser(int idx);
+
     @Insert("insert into mydb.addresses(country, state, city, address_line, zip_code, users_id) VALUES(#{country},#{state},#{city},#{addressLine},#{zipCode},#{usersId})")
     @Override
     void insert(Address address);

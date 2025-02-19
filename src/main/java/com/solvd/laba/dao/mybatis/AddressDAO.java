@@ -35,6 +35,14 @@ public class AddressDAO implements IAddressDAO {
     }
 
     @Override
+    public List<Address> getEntitiesByUser(int id) {
+        try(SqlSession session = sqlSessionFactory.openSession()) {
+            List<Address> addresses = session.selectList("com.solvd.laba.dao.IAddressDAO.getEntitiesByUser", id);
+            return addresses;
+        }
+    }
+
+    @Override
     public void insert(Address address) {
         try(SqlSession session = sqlSessionFactory.openSession()) {
             session.insert("com.solvd.laba.dao.IAddressDAO.insert", address);

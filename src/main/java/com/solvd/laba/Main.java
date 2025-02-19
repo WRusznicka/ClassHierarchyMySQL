@@ -13,6 +13,7 @@ import com.solvd.laba.model.Battery;
 //import com.solvd.laba.model.jaxb.*;
 import com.solvd.laba.model.User;
 import com.solvd.laba.model.json.*;
+import com.solvd.laba.service.AccountServiceFacade;
 import com.solvd.laba.service.AddressService;
 import com.solvd.laba.service.UserService;
 import jakarta.xml.bind.JAXBContext;
@@ -197,7 +198,7 @@ public class Main {
         }catch (Exception e){
             LOGGER.error("Error caught.");
         }
-        */
+
         //mybatis
         IAddressDAO addressDAO = AddressService.getAddressDAOSelect();
         Address address = addressDAO.getEntityById(2);
@@ -215,6 +216,11 @@ public class Main {
         userDAO.update(11, new User("Ola", "Nowakowska", "alnowak@gmail.com", "12345678", "+48564935276", "seller", 1));
         LOGGER.info(userDAO.getEntities());
         userDAO.delete(11);
+        */
+
+        //Facade
+        AccountServiceFacade facade = new AccountServiceFacade();
+        LOGGER.info(facade.getAccount(1));
     }
 /*
     public static Database unmarshal() throws JAXBException, IOException {
