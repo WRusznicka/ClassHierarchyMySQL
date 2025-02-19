@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="MyBatis">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/AccountServiceFacade.java" afterDir="false" />
+    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="Facade">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IDAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/jdbc/DAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/mybatis/DAOFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IAddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IAddressDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/jdbc/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/jdbc/AddressDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/mybatis/AddressDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/mybatis/AddressDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739395665891</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Facade">
+      <option name="closed" value="true" />
+      <created>1739993196756</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739993196756</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -151,6 +159,7 @@
     <MESSAGE value="JAXB" />
     <MESSAGE value="JSON" />
     <MESSAGE value="MyBatis" />
-    <option name="LAST_COMMIT_MESSAGE" value="MyBatis" />
+    <MESSAGE value="Facade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Facade" />
   </component>
 </project>
