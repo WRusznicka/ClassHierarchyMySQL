@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="Facade">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/IDAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/jdbc/DAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/dao/mybatis/DAOFactory.java" afterDir="false" />
+    <list default="true" id="4700eeaa-10ea-48ce-ad60-25c1468a4181" name="Changes" comment="Abstract Factory">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/FileLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/model/Observer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/AddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solvd/laba/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739993196756</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Abstract Factory">
+      <option name="closed" value="true" />
+      <created>1739995169467</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739995169467</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,6 +166,7 @@
     <MESSAGE value="JSON" />
     <MESSAGE value="MyBatis" />
     <MESSAGE value="Facade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Facade" />
+    <MESSAGE value="Abstract Factory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Abstract Factory" />
   </component>
 </project>

@@ -8,9 +8,9 @@ import com.solvd.laba.dao.IUserDAO;
 import com.solvd.laba.dao.jdbc.BatteryDAO;
 import com.solvd.laba.dao.jdbc.UserDAO;
 import com.solvd.laba.dao.mybatis.AddressDAO;
-import com.solvd.laba.model.Address;
-import com.solvd.laba.model.Battery;
+import com.solvd.laba.model.*;
 //import com.solvd.laba.model.jaxb.*;
+import com.solvd.laba.model.Address;
 import com.solvd.laba.model.User;
 import com.solvd.laba.model.json.*;
 import com.solvd.laba.service.AccountServiceFacade;
@@ -20,7 +20,6 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -47,7 +46,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Main {
-    public static final Logger LOGGER = LogManager.getLogger(Main.class);
+    private static final List<Observer> observerList = new ArrayList<>();
 
     public static void main(String[] args) {
         //3 examples of CRUD operations with new DAO:
@@ -218,9 +217,25 @@ public class Main {
         userDAO.delete(11);
         */
 
-        //Facade
+        //Design Patterns
         AccountServiceFacade facade = new AccountServiceFacade();
-        LOGGER.info(facade.getAccount(1));
+        addObserver(new Logger());
+        addObserver(new FileLogger());
+        printInfo(facade.getAccount(1));
+        printInfo(facade.getAccount(3));
+
+    }
+
+    public static void addObserver(Observer observer){
+        observerList.add(observer);
+    }
+
+    public static void removeObserver(Observer observer){
+        observerList.remove(observer);
+    }
+
+    public static void printInfo(String message){
+        observerList.stream().forEach(e->e.log(message, Main.class));
     }
 /*
     public static Database unmarshal() throws JAXBException, IOException {
